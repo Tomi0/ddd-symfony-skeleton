@@ -1,0 +1,11 @@
+services:
+  ddd-symfony-skeleton:
+    image: ddd-symfony-skeleton:latest
+    container_name: ddd-symfony-skeleton
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8000:80"
+    environment:
+      NEW_USER_ID: "${NEW_USER_ID}"
+      NEW_GROUP_ID: "${NEW_GROUP_ID}"
