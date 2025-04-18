@@ -11,5 +11,5 @@ stop:
 	NEW_USER_ID=$(NEW_USER_ID) NEW_GROUP_ID=$(NEW_GROUP_ID) docker compose down
 
 bash:
-	NEW_USER_ID=$(NEW_USER_ID) NEW_GROUP_ID=$(NEW_GROUP_ID) docker exec -it ddd-symfony-skeleton bash
+	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton bash
 

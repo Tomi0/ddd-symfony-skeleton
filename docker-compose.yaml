@@ -9,3 +9,26 @@ services:
     environment:
       NEW_USER_ID: "${NEW_USER_ID}"
       NEW_GROUP_ID: "${NEW_GROUP_ID}"
+    networks:
+      - project-network
+  database:
+    image: mariadb:11.7
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: ddd_symfony_skeleton
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_password
+    volumes:
+      - database-volume:/var/lib/mysql
+    networks:
+      - project-network
+
+volumes:
+  database-volume:
+    driver: local
+
+networks:
+  project-network:
+    name: project-network
+    driver: bridge
