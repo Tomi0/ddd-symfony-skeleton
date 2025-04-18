@@ -1,5 +1,4 @@
-controllers:
-    resource: '../../src/Authentication/Infrastructure/UI/Http/Controllers/'
-    type: attribute
-    prefix: '/auth'
-    name_prefix: 'auth_'
+LoginUser:
+    methods: POST
+    path: /login
+    controller: Authentication\Infrastructure\UI\Http\Controllers\LoginUserController

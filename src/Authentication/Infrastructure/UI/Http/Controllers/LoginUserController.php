@@ -1,12 +1,12 @@
 <?php
 
 namespace Authentication\Infrastructure\UI\Http\Controllers;
-use Authentication\Application\Services\User\LoginUser;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
 
-class LoginUserController
+use Authentication\Application\Services\User\LoginUser;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+class LoginUserController extends AbstractController
 {
     private LoginUser $loginUser;
 
@@ -15,11 +15,10 @@ class LoginUserController
         $this->loginUser = $loginUser;
     }
 
-    #[Route('/login', name: 'login', methods: ['POST'])]
     public function __invoke(): JsonResponse
     {
         return new JsonResponse([
-            'jwt' => $this->loginUser->handle()
+            'jwt' => $this->loginUser->handle(),
         ]);
     }
 }
