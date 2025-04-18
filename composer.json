@@ -27,7 +27,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "SharedKernel\\": "src/SharedKernel",
+            "Authentication\\": "src/Authentication"
         }
     },
     "autoload-dev": {

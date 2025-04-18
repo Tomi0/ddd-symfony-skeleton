@@ -1,0 +1,5 @@
+controllers:
+    resource: '../../src/Authentication/Infrastructure/UI/Http/Controllers/'
+    type: attribute
+    prefix: '/auth'
+    name_prefix: 'auth_'
