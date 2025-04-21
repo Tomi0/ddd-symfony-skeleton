@@ -6,7 +6,7 @@ use Authentication\Application\Services\User\SearchUsers;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class LoginUserController extends AbstractController
+class SearchUsersController extends AbstractController
 {
     private SearchUsers $searchUsers;
 

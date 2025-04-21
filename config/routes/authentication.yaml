@@ -1,4 +1,4 @@
 LoginUser:
     methods: GET
     path: /users/search
-    controller: Authentication\Infrastructure\UI\Http\Controllers\LoginUserController
+    controller: Authentication\Infrastructure\UI\Http\Controllers\SearchUsersController
