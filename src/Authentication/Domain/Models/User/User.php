@@ -2,7 +2,7 @@
 
 namespace Authentication\Domain\Models\User;
 
-use DateTimeImmutable;
+use DateTime;
 
 class User
 {
@@ -13,8 +13,8 @@ class User
     private ?string $phone;
     private string $password;
     private bool $active;
-    private DateTimeImmutable $createdAt;
-    private DateTimeImmutable $updatedAt;
+    private DateTime $createdAt;
+    private DateTime $updatedAt;
 
     public function __construct(string  $id,
                                 string  $firstName,
@@ -30,8 +30,8 @@ class User
         $this->phone = $phone;
         $this->password = $password;
         $this->active = true;
-        $this->createdAt = new DateTimeImmutable();
-        $this->updatedAt = new DateTimeImmutable();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function id(): string
@@ -69,12 +69,12 @@ class User
         return $this->active;
     }
 
-    public function createdAt(): DateTimeImmutable
+    public function createdAt(): DateTime
     {
         return $this->createdAt;
     }
 
-    public function updatedAt(): DateTimeImmutable
+    public function updatedAt(): DateTime
     {
         return $this->updatedAt;
     }

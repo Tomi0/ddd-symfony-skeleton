@@ -2,23 +2,23 @@
 
 namespace Authentication\Infrastructure\UI\Http\Controllers;
 
-use Authentication\Application\Services\User\LoginUser;
+use Authentication\Application\Services\User\SearchUsers;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LoginUserController extends AbstractController
 {
-    private LoginUser $loginUser;
+    private SearchUsers $searchUsers;
 
-    public function __construct(LoginUser $loginUser)
+    public function __construct(SearchUsers $loginUser)
     {
-        $this->loginUser = $loginUser;
+        $this->searchUsers = $loginUser;
     }
 
     public function __invoke(): JsonResponse
     {
-        return new JsonResponse([
-            'jwt' => $this->loginUser->handle(),
-        ]);
+        return new JsonResponse(
+            $this->searchUsers->handle()
+        );
     }
 }

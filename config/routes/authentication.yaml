@@ -1,4 +1,4 @@
 LoginUser:
-    methods: POST
-    path: /login
+    methods: GET
+    path: /users/search
     controller: Authentication\Infrastructure\UI\Http\Controllers\LoginUserController
