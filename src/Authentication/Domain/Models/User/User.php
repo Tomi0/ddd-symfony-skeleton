@@ -3,8 +3,9 @@
 namespace Authentication\Domain\Models\User;
 
 use DateTime;
+use SharedKernel\Domain\Models\Entity;
 
-class User
+class User implements Entity
 {
     private string $id;
     private string $firstName;

@@ -3,6 +3,7 @@
 namespace Authentication\Infrastructure\UI\Http\Controllers;
 
 use Authentication\Application\Services\User\SearchUsers;
+use Authentication\Infrastructure\UI\DataTransformers\User\UserDataTransformer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -17,8 +18,10 @@ class SearchUsersController extends AbstractController
 
     public function __invoke(): JsonResponse
     {
+        $users = $this->searchUsers->handle();
+
         return new JsonResponse(
-            $this->searchUsers->handle()
+            (new UserDataTransformer())->transform($users)
         );
     }
 }
