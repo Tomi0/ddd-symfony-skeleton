@@ -5,7 +5,7 @@
                                       https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="Authentication\Domain\Models\User\User" table="user">
-        <id name="id" type="string" column="id" length="32">
+        <id name="id" type="user_id" column="id" length="32">
             <generator strategy="NONE"/>
         </id>
 

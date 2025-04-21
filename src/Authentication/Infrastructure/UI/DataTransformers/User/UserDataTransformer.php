@@ -20,7 +20,7 @@ class UserDataTransformer implements DataTransformer
     public function transformOne(Entity $data): array
     {
         return [
-            'id' => $data->id(),
+            'id' => $data->id()->value(),
             'firstName' => $data->firstName(),
             'lastName' => $data->lastName(),
             'email' => $data->email(),

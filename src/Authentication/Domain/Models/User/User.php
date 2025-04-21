@@ -7,7 +7,7 @@ use SharedKernel\Domain\Models\Entity;
 
 class User implements Entity
 {
-    private string $id;
+    private UserId $id;
     private string $firstName;
     private string $lastName;
     private string $email;
@@ -17,7 +17,7 @@ class User implements Entity
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
-    public function __construct(string  $id,
+    public function __construct(UserId  $id,
                                 string  $firstName,
                                 string  $lastName,
                                 string  $email,
@@ -35,7 +35,7 @@ class User implements Entity
         $this->updatedAt = new DateTime();
     }
 
-    public function id(): string
+    public function id(): UserId
     {
         return $this->id;
     }
