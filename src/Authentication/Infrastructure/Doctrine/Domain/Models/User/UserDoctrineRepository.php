@@ -19,9 +19,11 @@ class UserDoctrineRepository extends ServiceEntityRepository implements UserRepo
     public function search(): array
     {
         return $this->getEntityManager()->createQuery(<<<DQL
-            SELECT u
-            FROM $this->modelClass u
-            WHERE u.active = true
-        DQL)->getResult();
+                SELECT u
+                FROM $this->modelClass u
+                WHERE u.active = true
+            DQL)
+            ->setMaxResults(50)
+            ->getResult();
     }
 }
