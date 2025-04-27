@@ -2,20 +2,31 @@
 
 namespace Tests;
 
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 
-class TestCase extends KernelTestCase
+class TestCase extends WebTestCase
 {
     private static bool $migrated = false;
 
+    /**
+     * @throws Exception
+     */
     protected function setUp(): void
     {
         parent::setUp();
-        self::bootKernel();
         $this->migrateDatabase();
+    }
+
+    protected function loadFixtures(array $fixturesClassNames): void
+    {
+        foreach ($fixturesClassNames as $fixturesClassName) {
+            $fixture = new $fixturesClassName();
+            $fixture->load(static::getContainer()->get('doctrine')->getManager());
+        }
     }
 
     protected function getDependency(string $class): mixed
@@ -24,7 +35,7 @@ class TestCase extends KernelTestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     private function migrateDatabase(): void
     {
