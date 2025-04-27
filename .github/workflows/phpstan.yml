@@ -21,6 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: PHPStan
+        env:
+          APP_ENV: test
         run: |
           composer install
           php vendor/bin/phpstan analyse -c phpstan.dist.neon
