@@ -20,5 +20,7 @@ jobs:
     steps:
       - name: PHPStan
         run: |
+          ls -lrt
+          pwd
           composer install
           php vendor/bin/phpstan analyse -c phpstan.dist.neon
