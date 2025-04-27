@@ -22,6 +22,9 @@ class TestCase extends WebTestCase
         }
     }
 
+    /**
+     * @param array<string> $fixturesClassNames
+     */
     protected function loadFixtures(array $fixturesClassNames): void
     {
         foreach ($fixturesClassNames as $fixturesClassName) {

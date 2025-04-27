@@ -8,7 +8,10 @@ use SharedKernel\Infrastructure\UI\DataTransformers\DataTransformer;
 
 class UserDataTransformer implements DataTransformer
 {
-
+    /**
+     * @param User[] $data
+     * @return array{id: string, firstName: string, lastName: string, email: string, phone: string, active: boolean, createdAt: string, updatedAt: string}[]
+     */
     public function transform(array $data): array
     {
         return array_map(fn(User $user) => $this->transformOne($user), $data);
@@ -16,6 +19,7 @@ class UserDataTransformer implements DataTransformer
 
     /**
      * @param User $data
+     * @return array{id: string, firstName: string, lastName: string, email: string, phone: string, active: boolean, createdAt: string, updatedAt: string}
      */
     public function transformOne(Entity $data): array
     {

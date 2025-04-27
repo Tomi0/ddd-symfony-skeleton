@@ -25,12 +25,6 @@ class SearchUsersTest extends TestCase
         ]);
     }
 
-    public function testReturnIsAnArray(): void
-    {
-        $result = $this->searchUsers->handle();
-        $this->assertIsArray($result);
-    }
-
     public function testReturnArrayOfUserEntity(): void
     {
         $result = $this->searchUsers->handle();

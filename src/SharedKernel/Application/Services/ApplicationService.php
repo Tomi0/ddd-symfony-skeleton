@@ -4,5 +4,5 @@ namespace SharedKernel\Application\Services;
 
 interface ApplicationService
 {
-    public function handle();
+    public function handle(): mixed;
 }

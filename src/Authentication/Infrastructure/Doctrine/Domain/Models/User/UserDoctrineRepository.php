@@ -7,9 +7,12 @@ use Authentication\Domain\Models\User\UserRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+/**
+ * @extends ServiceEntityRepository<User>
+ */
 class UserDoctrineRepository extends ServiceEntityRepository implements UserRepository
 {
-    private $modelClass = User::class;
+    private string $modelClass = User::class;
 
     public function __construct(ManagerRegistry $registry)
     {
