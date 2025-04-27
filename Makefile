@@ -18,3 +18,6 @@ test:
 	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton php bin/console doctrine:migrations:migrate --no-interaction --silent
 	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton php vendor/bin/phpstan analyse -c phpstan.dist.neon
 	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton php bin/phpunit --testdox
+
+php-cs-fixer:
+	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) -e PHP_CS_FIXER_IGNORE_ENV=1 ddd-symfony-skeleton ./vendor/bin/php-cs-fixer fix src
