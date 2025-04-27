@@ -28,6 +28,8 @@ services:
   database-testing:
     image: mariadb:11.7
     container_name: database-testing
+    volumes:
+      - database-testing-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: ddd_symfony_skeleton_test
@@ -38,6 +40,8 @@ services:
 
 volumes:
   database-volume:
+    driver: local
+  database-testing-volume:
     driver: local
 
 networks:

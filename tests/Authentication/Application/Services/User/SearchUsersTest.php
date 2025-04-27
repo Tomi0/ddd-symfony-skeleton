@@ -15,6 +15,7 @@ class SearchUsersTest extends TestCase
     {
         parent::setUp();
         $this->searchUsers = $this->getDependency(SearchUsers::class);
+        $this->initTestData();
     }
 
     private function initTestData(): void
@@ -26,14 +27,12 @@ class SearchUsersTest extends TestCase
 
     public function testReturnIsAnArray(): void
     {
-        $this->initTestData();
         $result = $this->searchUsers->handle();
         $this->assertIsArray($result);
     }
 
     public function testReturnArrayOfUserEntity(): void
     {
-        $this->initTestData();
         $result = $this->searchUsers->handle();
         $this->assertCount(1, $result);
         $this->assertInstanceOf(User::class, $result[0]);

@@ -13,3 +13,7 @@ stop:
 bash:
 	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton bash
 
+test:
+	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton php bin/console cache:clear
+	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton php bin/console doctrine:migrations:migrate --no-interaction
+	docker exec -it -u $(NEW_USER_ID):$(NEW_GROUP_ID) ddd-symfony-skeleton php bin/phpunit --testdox
