@@ -27,7 +27,7 @@ class UserIdType extends Type
         return new UserId($value);
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
     {
         if ($value instanceof ValueObject) {
             return $value->value();
