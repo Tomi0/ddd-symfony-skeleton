@@ -12,7 +12,6 @@ class SearchUsers implements ApplicationService
 
     public function __construct(UserRepository $userRepository)
     {
-
         $this->userRepository = $userRepository;
     }
 

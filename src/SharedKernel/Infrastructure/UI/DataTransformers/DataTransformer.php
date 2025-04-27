@@ -8,12 +8,12 @@ interface DataTransformer
 {
     /**
      * @param Entity[] $data
+     *
      * @return array<mixed>[]
      */
     public function transform(array $data): array;
 
     /**
-     * @param Entity $data
      * @return array<mixed>
      */
     public function transformOne(Entity $data): array;

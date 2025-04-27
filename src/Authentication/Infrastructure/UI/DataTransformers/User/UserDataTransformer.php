@@ -10,16 +10,18 @@ class UserDataTransformer implements DataTransformer
 {
     /**
      * @param User[] $data
-     * @return array{id: string, firstName: string, lastName: string, email: string, phone: string, active: boolean, createdAt: string, updatedAt: string}[]
+     *
+     * @return array{id: string, firstName: string, lastName: string, email: string, phone: string, active: bool, createdAt: string, updatedAt: string}[]
      */
     public function transform(array $data): array
     {
-        return array_map(fn(User $user) => $this->transformOne($user), $data);
+        return array_map(fn (User $user) => $this->transformOne($user), $data);
     }
 
     /**
      * @param User $data
-     * @return array{id: string, firstName: string, lastName: string, email: string, phone: string, active: boolean, createdAt: string, updatedAt: string}
+     *
+     * @return array{id: string, firstName: string, lastName: string, email: string, phone: string, active: bool, createdAt: string, updatedAt: string}
      */
     public function transformOne(Entity $data): array
     {

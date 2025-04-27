@@ -10,7 +10,7 @@ use SharedKernel\Domain\Models\ValueObject;
 // TODO Possible refactor: many functions could be extracted to a parent class
 class UserIdType extends Type
 {
-    const NAME = 'user_id';
+    public const NAME = 'user_id';
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {

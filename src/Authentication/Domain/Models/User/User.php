@@ -2,7 +2,6 @@
 
 namespace Authentication\Domain\Models\User;
 
-use DateTime;
 use SharedKernel\Domain\Models\Entity;
 
 class User implements Entity
@@ -14,15 +13,15 @@ class User implements Entity
     private ?string $phone;
     private string $password;
     private bool $active;
-    private DateTime $createdAt;
-    private DateTime $updatedAt;
+    private \DateTime $createdAt;
+    private \DateTime $updatedAt;
 
-    public function __construct(UserId  $id,
-                                string  $firstName,
-                                string  $lastName,
-                                string  $email,
-                                ?string $phone,
-                                string  $password)
+    public function __construct(UserId $id,
+        string $firstName,
+        string $lastName,
+        string $email,
+        ?string $phone,
+        string $password)
     {
         $this->id = $id;
         $this->firstName = $firstName;
@@ -31,8 +30,8 @@ class User implements Entity
         $this->phone = $phone;
         $this->password = $password;
         $this->active = true;
-        $this->createdAt = new DateTime();
-        $this->updatedAt = new DateTime();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     public function id(): UserId
@@ -70,12 +69,12 @@ class User implements Entity
         return $this->active;
     }
 
-    public function createdAt(): DateTime
+    public function createdAt(): \DateTime
     {
         return $this->createdAt;
     }
 
-    public function updatedAt(): DateTime
+    public function updatedAt(): \DateTime
     {
         return $this->updatedAt;
     }
